@@ -1,7 +1,10 @@
 package com.example.jiamin.detaildemo;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,11 +24,13 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecycl
     private List<Map<String, ?>> mDataset;
     private Context mContext;
     private int mCurrentPosition = 0;
+    private View rootView;
 
     // Constructor
-    public DetailRecyclerViewAdapter(Context myContext, List<Map<String, ?>> myDataset) {
+    public DetailRecyclerViewAdapter(Context myContext, List<Map<String, ?>> myDataset,View rView) {
         mContext = myContext;
         mDataset = myDataset;
+        rootView = rView;
         Log.d("DetailRecyclerViewAdapter","structure function");
 
     }
@@ -99,10 +104,24 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecycl
                         vIcon.setImageResource(((Integer)item.get("icon")).intValue());
                     if(vTitle!=null)
                         vTitle.setText((String)item.get("title"));
+                    if(vView!=null)
+
                     break;
                 case DetailData.TYPE2:
                     if(vTitle!=null)
                         vTitle.setText((String)item.get("title"));
+                    int i = R.drawable.bg2;
+                    int k = (Integer)item.get("icon");
+                    if(i==k)
+                        Log.d("i=k","true");
+                    else
+                        Log.d("i=k","False");
+
+                    Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), (Integer)item.get("icon"));
+                    BitmapDrawable drawable = new BitmapDrawable(bitmap);
+                    drawable.setDither(true);
+                    rootView.findViewById(R.id.detailview).setBackground(drawable);
+
                     /*if(vIcon!=null)
                         vIcon.setImageResource(((Integer)item.get("icon")).intValue());*/
                     break;
@@ -130,7 +149,11 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecycl
     @Override
     public int getItemViewType(int position){
         Map<String, ?> item = mDataset.get(position);
-        return (Integer) item.get("type");
+        int t = 3;
+        t = (Integer) item.get("type");
+ //       Log.d("type ", Integer.toString(t));
+      return t;
+        //    return  1;
     }
     @Override
     public int getItemCount() { return mDataset.size();}

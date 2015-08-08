@@ -160,8 +160,8 @@ public class PlaceholderFragment extends Fragment {
                 btnMasterTask2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                     //   Intent intent = new Intent(getActivity(),ExerciseRotaryLightActivity.class);
-                     //   startActivity(intent);
+                        Intent intent = new Intent(getActivity(),RecyclerViewActivity.class);
+                        startActivity(intent);
 
                     }
                 });

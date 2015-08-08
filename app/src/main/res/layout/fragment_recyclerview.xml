@@ -3,6 +3,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/detailview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,12 +11,13 @@
     >
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
-        android:layout_width="360dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
 
         android:layout_centerHorizontal="true"
         android:id="@+id/ButtonView">
+
 
 
     </LinearLayout>
@@ -24,7 +26,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        android:layout_below="@id/ButtonView"/>
+        android:layout_below="@id/ButtonView"
+        />
+    <com.example.jiamin.detaildemo.RotaryKnobView
+        android:layout_below="@id/cardList"
+        android:layout_marginTop="-100dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/rotaryKnobView"
+        android:layout_centerHorizontal="true"
+
+        />
+
+
+
+
 
 </RelativeLayout>
 

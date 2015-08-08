@@ -78,6 +78,7 @@ public class DetailDataLocalJason {
                     //
                     detailList.add(createItem(TYPE4,"Location",location));
                     detailList.add(createItem(TYPE4,"Camera",model));
+                    detailList.add(createItem(TYPE4,"Time","May"));
                     detailList.add(createItem(TYPE3,description));
                     detailList.add(createItem(TYPE5));
                     Log.d("DetailDataLocalJson","createlist");
